@@ -83,4 +83,28 @@ class SinglyLinkedList{
         return null;
     }
     // Implement a removeAt(int) method that will remove the node after n nodes, where n is the parameter. For example, if n is 0, remove the first node. If n is 1, remove the second node. Similar to Arrays.
+    public void removeAt(int n){//not finished
+        if(head == null){
+            System.out.println("EmptyList");
+            return;
+        }//Empty SLL means do nothing
+        if(head.next == null && n == 0){
+            head = null;
+            return;
+        }//remove list if n is 0 and only one in list
+        if(head.next != null && n==0){
+            head = head.next;
+            return;
+        }//moves head to next Node if it exists
+        int count = 1;
+        Node prev = head;
+        while(prev.next != null){
+            if(count == n){
+                prev.next = prev.next.next;//maintain link 
+            }
+            count++;
+            prev = prev.next;
+        }
+
+    }
 }
