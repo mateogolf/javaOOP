@@ -18,5 +18,6 @@ public class MasterTest {
 		System.out.println(Samurai.howMany());
 		s2.dealthBlow(s1b);
 		System.out.println(Samurai.howMany());
+		s1b.displayStats();
 	}
 }
