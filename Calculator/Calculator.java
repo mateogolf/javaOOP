@@ -10,7 +10,7 @@ public class Calculator implements java.io.Serializable{
         this.operandOne = operandOne;
         this.operation = operation;
         this.operandTwo = operandTwo;
-        this.result = performOperation();
+        performOperation();
     }
     //Getters
     public double getOperandOne() {
@@ -34,20 +34,15 @@ public class Calculator implements java.io.Serializable{
     public void setOperandTwo(double operandTwo){
         this.operandTwo = operandTwo;
     }
-    public double performOperation(){
-        if(operation != "+" || operation != "-"){
-            System.out.println("Not addition or subtraction. Result unchanged");
-            return result;
-        }
-        if(operation == "+"){
+    public void performOperation(){
+        if(operation.equals("+")){
             result = operandOne + operandTwo;
-            return result;
-        }else if(operation == "-"){
+        }else if(operation.equals("-")){
             result = operandOne - operandTwo;
-            return result;
+        }else{
+            System.out.println("Not Addition or subtraction");
+            result = 0;
         }
-        System.out.println("Nothing performed");
-        return result;
         // String result = operandOne + operation + operandTwo;
         // System.out.println(result);
         // ScriptEngineManager mgr = new ScriptEngineManager();
@@ -60,7 +55,7 @@ public class Calculator implements java.io.Serializable{
         return result;
     }
     public void setResult(){
-        this.result = performOperation();
+        performOperation();
     }
 
 }
